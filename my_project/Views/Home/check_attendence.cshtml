@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "check_attendence";
+}
+
+
+@ViewBag.id
+@ViewBag.sub
+<input type="hidden" name="" value ="@ViewBag.mess">
+
+<table border="1" width="100%">
+    <tr>
+         <td>Date</td>
+        <td>attendence</td>
+        
+    </tr>
+
+ 
+   @{
+       for(int i=0;i<ViewBag.a.Count;i++)
+       {
+           <tr>
+           
+               <td>@ViewBag.b[i]</td>
+               <td>@ViewBag.a[i]</td>
+       </tr>
+       }
+   }
+
+    
+
+
+</table>

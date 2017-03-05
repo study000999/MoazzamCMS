@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93BEB01E-AAE7-47C0-8D55-FCC7A8F32848}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>my_project</RootNamespace>
+    <AssemblyName>my_project</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ColorCode">
+      <HintPath>..\..\..\..\..\Desktop\pdf_converter\C#\bin\ColorCode.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\add_student_info.cs" />
+    <Compile Include="Models\add_teacher_info.cs" />
+    <Compile Include="Models\Confirmation.cs" />
+    <Compile Include="Models\Degree_Work.cs" />
+    <Compile Include="Models\MakeAttendance.cs" />
+    <Compile Include="Models\data.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\marking.cs" />
+    <Compile Include="Models\mothly_registeration.cs" />
+    <Compile Include="Models\SessionManagement.cs" />
+    <Compile Include="Models\Subject_Work.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Data\App_Start\FilterConfig.cs" />
+    <Compile Include="App_Data\App_Start\RouteConfig.cs" />
+    <Compile Include="App_Data\App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\admin_database.mdf" />
+    <Content Include="App_Data\admin_database_log.ldf">
+      <DependentUpon>admin_database.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <Content Include="changing\a1.jpg" />
+    <Content Include="changing\bootstrap-elements.html" />
+    <Content Include="changing\bootstrap\css\bootstrap.css" />
+    <Content Include="changing\bootstrap\css\bootstrap.min.css" />
+    <Content Include="changing\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="changing\bootstrap\js\bootstrap.js" />
+    <Content Include="changing\bootstrap\js\bootstrap.min.js" />
+    <Content Include="changing\css\local.css" />
+    <Content Include="changing\font-awesome\css\font-awesome.css" />
+    <Content Include="changing\font-awesome\css\font-awesome.min.css" />
+    <Content Include="changing\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="changing\js\jquery-1.10.2.min.js" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\jquery.tosrus.all.css" />
+    <Content Include="css\slick.css" />
+    <Content Include="css\superslides.css" />
+    <Content Include="css\s_table_css\css\style.css" />
+    <Content Include="css\s_table_css\index.html" />
+    <Content Include="css\s_table_css\license.txt" />
+    <Content Include="css\s_table_css\README.txt" />
+    <Content Include="css\themes\bridge-theme.css" />
+    <Content Include="css\themes\dark-red-theme.css" />
+    <Content Include="css\themes\default-theme.css" />
+    <Content Include="css\themes\green-theme.css" />
+    <Content Include="css\themes\lite-blue-theme.css" />
+    <Content Include="css\themes\orange-theme.css" />
+    <Content Include="css\themes\pink-theme.css" />
+    <Content Include="css\themes\purple-theme.css" />
+    <Content Include="css\themes\red-theme.css" />
+    <Content Include="css\themes\yellow-theme.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\ie.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\buttons\icons\cross.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\buttons\icons\key.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\buttons\icons\tick.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\buttons\readme.txt" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\buttons\screen.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\fancy-type\readme.txt" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\fancy-type\screen.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\icons\doc.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\icons\email.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\icons\external.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\icons\feed.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\icons\im.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\icons\pdf.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\icons\visited.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\icons\xls.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\readme.txt" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\link-icons\screen.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\rtl\readme.txt" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\rtl\screen.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\print.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\screen.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\src\forms.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\src\grid.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\src\grid.png" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\src\ie.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\src\print.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\src\reset.css" />
+    <Content Include="DOCUMENTATION\assets\blueprint-css\src\typography.css" />
+    <Content Include="DOCUMENTATION\assets\images\favicon.png" />
+    <Content Include="DOCUMENTATION\index.html" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shAutoloader.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushAS3.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushBash.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushCpp.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushCSharp.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushCss.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushDelphi.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushDiff.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushErlang.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushGroovy.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushJava.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushJScript.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushPerl.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushPhp.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushPlain.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushPython.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushRuby.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushSass.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushScala.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushSql.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushVb.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shBrushXml.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shCore.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\scripts\shLegacy.js" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCore.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCoreDefault.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCoreDjango.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCoreEclipse.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCoreEmacs.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCoreMDUltra.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCoreMidnight.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shCoreRDark.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shThemeDefault.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shThemeDjango.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shThemeEclipse.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shThemeEmacs.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shThemeMDUltra.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shThemeMidnight.css" />
+    <Content Include="DOCUMENTATION\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="img\a1.jpg" />
+    <Content Include="img\author.jpg" />
+    <Content Include="img\author2.jpg" />
+    <Content Include="img\banner.jpg" />
+    <Content Include="img\blog.jpg" />
+    <Content Include="img\bootom-top-arrow.png" />
+    <Content Include="img\course-1.jpg" />
+    <Content Include="img\course-2.jpg" />
+    <Content Include="img\course-3.jpg" />
+    <Content Include="img\course-nav-next.png" />
+    <Content Include="img\course-nav-prev.png" />
+    <Content Include="img\course-single.jpg" />
+    <Content Include="img\events-slider1.jpg" />
+    <Content Include="img\events-slider2.jpg" />
+    <Content Include="img\events-slider3.jpg" />
+    <Content Include="img\events.jpg" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="img\gallery\cancel.png" />
+    <Content Include="img\gallery\contactImage.jpg" />
+    <Content Include="img\gallery\iamge-3.JPG" />
+    <Content Include="img\gallery\image-1.jpg" />
+    <Content Include="img\gallery\image-10.jpg" />
+    <Content Include="img\gallery\image-11.jpg" />
+    <Content Include="img\gallery\image-12 %282%29.jpg" />
+    <Content Include="img\gallery\image-12.jpg" />
+    <Content Include="img\gallery\image-2.jpg" />
+    <Content Include="img\gallery\image-5.jpg" />
+    <Content Include="img\gallery\image-6.jpg" />
+    <Content Include="img\gallery\image-7.jpg" />
+    <Content Include="img\gallery\image-8.JPG" />
+    <Content Include="img\gallery\image-9.jpg" />
+    <Content Include="img\gallery\images.jpg" />
+    <Content Include="img\gallery\img-large1.jpg" />
+    <Content Include="img\gallery\img-large2.jpg" />
+    <Content Include="img\gallery\img-large3.jpg" />
+    <Content Include="img\gallery\img-large4.jpg" />
+    <Content Include="img\gallery\img-small1.jpg" />
+    <Content Include="img\gallery\img-small2.jpg" />
+    <Content Include="img\gallery\img-small3.jpg" />
+    <Content Include="img\gallery\img-small4.jpg" />
+    <Content Include="img\gallery\main_image2.jpg" />
+    <Content Include="img\gallery\new 1.jpg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\nav-next.png" />
+    <Content Include="img\nav-prev.png" />
+    <Content Include="img\nav.png" />
+    <Content Include="img\new 1.jpg" />
+    <Content Include="img\news.jpg" />
+    <Content Include="img\notice.jpg" />
+    <Content Include="img\p1.jpg" />
+    <Content Include="img\side-add.jpg" />
+    <Content Include="img\skills_bg.jpg" />
+    <Content Include="img\slider\2.jpg" />
+    <Content Include="img\slider\3.jpg" />
+    <Content Include="img\slider\4.jpg" />
+    <Content Include="img\slider\cancel.png" />
+    <Content Include="img\slider\m1.jpg" />
+    <Content Include="img\slider\main1.jpg" />
+    <Content Include="img\slider\main_image.jpg" />
+    <Content Include="img\slider\main_image2.jpg" />
+    <Content Include="img\slider\main_image3.jpg" />
+    <Content Include="img\slider\navigation-icon.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\FlameViewportScale.js" />
+    <Content Include="js\jquery.animate-enhanced.min.js" />
+    <Content Include="js\jquery.easing.1.3.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.superslides.min.js" />
+    <Content Include="js\jquery.tosrus.min.all.js" />
+    <Content Include="js\queryloader2.min.js" />
+    <Content Include="js\slick.min.js" />
+    <Content Include="js\wow.min.js" />
+    <Content Include="style.css" />
+    <Content Include="table\css\normalize.css" />
+    <Content Include="table\css\style.css" />
+    <Content Include="table\index.html" />
+    <Content Include="table\js\index.js" />
+    <Content Include="table\license.txt" />
+    <Content Include="table\README.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\add_info1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DOCUMENTATION\assets\blueprint-css\plugins\.DS_Store" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="changing\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="changing\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="changing\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="changing\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="changing\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="changing\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="changing\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="changing\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="changing\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="changing\font-awesome\less\bordered-pulled.less" />
+    <Content Include="changing\font-awesome\less\core.less" />
+    <Content Include="changing\font-awesome\less\fixed-width.less" />
+    <Content Include="changing\font-awesome\less\font-awesome.less" />
+    <Content Include="changing\font-awesome\less\icons.less" />
+    <Content Include="changing\font-awesome\less\larger.less" />
+    <Content Include="changing\font-awesome\less\list.less" />
+    <Content Include="changing\font-awesome\less\mixins.less" />
+    <Content Include="changing\font-awesome\less\path.less" />
+    <Content Include="changing\font-awesome\less\rotated-flipped.less" />
+    <Content Include="changing\font-awesome\less\spinning.less" />
+    <Content Include="changing\font-awesome\less\stacked.less" />
+    <Content Include="changing\font-awesome\less\variables.less" />
+    <Content Include="changing\font-awesome\scss\font-awesome.scss" />
+    <Content Include="changing\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="changing\font-awesome\scss\_core.scss" />
+    <Content Include="changing\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="changing\font-awesome\scss\_icons.scss" />
+    <Content Include="changing\font-awesome\scss\_larger.scss" />
+    <Content Include="changing\font-awesome\scss\_list.scss" />
+    <Content Include="changing\font-awesome\scss\_mixins.scss" />
+    <Content Include="changing\font-awesome\scss\_path.scss" />
+    <Content Include="changing\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="changing\font-awesome\scss\_spinning.scss" />
+    <Content Include="changing\font-awesome\scss\_stacked.scss" />
+    <Content Include="changing\font-awesome\scss\_variables.scss" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="css\s_table_css\config.rb" />
+    <Content Include="css\s_table_css\scss\style.scss" />
+    <None Include="Models\DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+    <Content Include="Views\Home\adminpage.cshtml" />
+    <Content Include="Views\Home\students.cshtml" />
+    <Content Include="Views\Home\Add_Student.cshtml" />
+    <Content Include="Views\Home\edit_password.cshtml" />
+    <Content Include="Views\Home\edit_password1.cshtml" />
+    <Content Include="Views\Home\edit_information.cshtml" />
+    <Content Include="Views\Home\edit_information1.cshtml" />
+    <Content Include="Views\Home\teachers.cshtml" />
+    <Content Include="Views\Home\Add_Teacher.cshtml" />
+    <Content Include="Views\Home\edit_teacher_information.cshtml" />
+    <Content Include="Views\Home\edit_teacher_information1.cshtml" />
+    <Content Include="Views\Home\edit_teacher_password1.cshtml" />
+    <Content Include="Views\Home\edit_teacher_password.cshtml" />
+    <Content Include="Views\Home\teacher_login.cshtml" />
+    <Content Include="Views\Home\teacher_mainpage.cshtml" />
+    <Content Include="Views\Home\studentAttendance.cshtml" />
+    <Content Include="Views\Home\select_section.cshtml" />
+    <Content Include="Views\Home\studentAttendance1.cshtml" />
+    <Content Include="Views\Home\MarkAttendence.cshtml" />
+    <Content Include="Views\Home\manage_teacher_section.cshtml" />
+    <Content Include="Views\Home\MidTermMarks.cshtml" />
+    <Content Include="Views\Home\MidTermMarks1.cshtml" />
+    <Content Include="Views\Home\student_login.cshtml" />
+    <Content Include="Views\Home\student_mainpage.cshtml" />
+    <Content Include="Views\Home\student_attend_view.cshtml" />
+    <Content Include="Views\Home\Subjects.cshtml" />
+    <Content Include="Views\Home\check_attendence.cshtml" />
+    <Content Include="Views\Home\check_quiz.cshtml" />
+    <Content Include="Views\Home\Quizes.cshtml" />
+    <Content Include="Views\Home\Quizes1.cshtml" />
+    <Content Include="Views\Home\check_midterm.cshtml" />
+    <Content Include="Views\Home\Index2.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Home\logout.cshtml" />
+    <Content Include="Views\Home\AttendanceManagement.cshtml" />
+    <Content Include="Views\Home\SectionManagement.cshtml" />
+    <Content Include="Views\Home\check_student_Attendance.cshtml" />
+    <Content Include="Views\Home\check_studentAttendance2.cshtml" />
+    <Content Include="Views\Home\AttendanceManagement2.cshtml" />
+    <Content Include="Views\Home\at1.cshtml" />
+    <Content Include="Views\Home\edit_teacher_password_table.cshtml" />
+    <Content Include="Views\Home\check_studentAttendance1.cshtml" />
+    <Content Include="Views\Home\student_attendance_menu.cshtml" />
+    <Content Include="Views\Home\check_section_attendance.cshtml" />
+    <Content Include="Views\Home\check_section_attendance1.cshtml" />
+    <Content Include="Views\Home\check_section_monthly_attendance.cshtml" />
+    <Content Include="Views\Home\add_student_menu.cshtml" />
+    <Content Include="Views\Home\first_year_menu.cshtml" />
+    <Content Include="Views\Home\fsc_engg.cshtml" />
+    <Content Include="Views\Home\fsc_med.cshtml" />
+    <Content Include="Views\Home\ics.cshtml" />
+    <Content Include="Views\Home\icom.cshtml" />
+    <Content Include="Views\Home\bcom.cshtml" />
+    <Content Include="Views\Home\fa.cshtml" />
+    <Content Include="Views\Home\ba.cshtml" />
+    <Content Include="Views\Home\change_section.cshtml" />
+    <Content Include="Views\Home\change_section1.cshtml" />
+    <Content Include="Views\Home\Add_Student_main.cshtml" />
+    <Content Include="Views\Home\Add_Teacher1.cshtml" />
+    <Content Include="Views\Home\add_sections.cshtml" />
+    <Content Include="Views\Home\fee_management_main.cshtml" />
+    <Content Include="Views\Home\ceo_page.cshtml" />
+    <Content Include="Views\Home\manage_fee.cshtml" />
+    <Content Include="Views\Home\fsc_engg_fee.cshtml" />
+    <Content Include="Views\Home\fsc_med_fee.cshtml" />
+    <Content Include="Views\Home\ics_fee.cshtml" />
+    <Content Include="Views\Home\icom_fee.cshtml" />
+    <Content Include="Views\Home\bcom_fee.cshtml" />
+    <Content Include="Views\Home\fa_fee.cshtml" />
+    <Content Include="Views\Home\ba_fee.cshtml" />
+    <Content Include="Views\Home\accountant_page.cshtml" />
+    <Content Include="Views\Home\challan_forms.cshtml" />
+    <Content Include="Views\Home\fsc_engg_challan.cshtml" />
+    <Content Include="Views\Home\reg_fee.cshtml" />
+    <Content Include="Views\Home\fsc_med_challan.cshtml" />
+    <Content Include="Views\Home\fa_challan.cshtml" />
+    <Content Include="Views\Home\ba_challan.cshtml" />
+    <Content Include="Views\Home\ics_challan.cshtml" />
+    <Content Include="Views\Home\icom_challan.cshtml" />
+    <Content Include="Views\Home\bcom_challan.cshtml" />
+    <Content Include="Views\Home\Confirmation.cshtml" />
+    <Content Include="Views\Home\Confirmation1.cshtml" />
+    <Content Include="Views\Home\first_installment_confirm.cshtml" />
+    <Content Include="Views\Home\other_installment.cshtml" />
+    <Content Include="Views\Home\other_installment1.cshtml" />
+    <Content Include="Views\Home\get_challan_form.cshtml" />
+    <Content Include="Views\Home\get_challan_form1.cshtml" />
+    <Content Include="Views\Home\get_challan_form2.cshtml" />
+    <Content Include="Views\Home\Fine_Management_Main.cshtml" />
+    <Content Include="Views\Home\ManageFine.cshtml" />
+    <Content Include="Views\Home\AddFine.cshtml" />
+    <Content Include="Views\Home\addfine2.cshtml" />
+    <Content Include="Views\Home\ReissueChallan.cshtml" />
+    <Content Include="Views\Home\ReissueChallan2.cshtml" />
+    <Content Include="Views\Home\ReissueChallan1.cshtml" />
+    <Content Include="Views\Home\check.cshtml" />
+    <Content Include="Views\Home\student_attend_view1.cshtml" />
+    <Content Include="Views\Home\MidMarks.cshtml" />
+    <Content Include="Views\Home\check_student_month_attendance.cshtml" />
+    <Content Include="Views\Home\add_degree.cshtml" />
+    <Content Include="Views\Home\add_section.cshtml" />
+    <Content Include="Views\Home\challan_forms2.cshtml" />
+    <Content Include="Views\Home\generate_challan_form.cshtml" />
+    <Content Include="Views\Home\add_category.cshtml" />
+    <Content Include="Views\Home\check_section_month_attendance1.cshtml" />
+    <Content Include="Views\Home\add_deg_name.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\SessionMain.cshtml" />
+    <Content Include="Views\Home\CreateSession.cshtml" />
+    <Content Include="Views\Home\delete_sections.cshtml" />
+    <Content Include="Views\Home\UpdateSession.cshtml" />
+    <Content Include="Views\Home\delete_degree.cshtml" />
+    <Content Include="Views\Home\Degree_Main.cshtml" />
+    <Content Include="Views\Home\update_section.cshtml" />
+    <Content Include="Views\Home\Section_Main.cshtml" />
+    <Content Include="Views\Home\Add_Subjects.cshtml" />
+    <Content Include="Views\Home\Subject_Main.cshtml" />
+    <Content Include="Views\Home\Add_degree_Fee.cshtml" />
+    <Content Include="Views\Home\update_subjects.cshtml" />
+    <Content Include="Views\Home\delete_subjects.cshtml" />
+    <Content Include="Views\Home\add_information.cshtml" />
+    <Content Include="Views\Home\editAttendance.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3934</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1275/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

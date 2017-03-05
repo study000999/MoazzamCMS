@@ -1,0 +1,189 @@
+﻿@{
+    ViewBag.Title = "add_degree";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Portal</title>
+
+    <link rel="stylesheet" type="text/css" href="/changing/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/css/local.css" />
+
+    <script type="text/javascript" src="/changing/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/changing/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+    <style>
+
+    div.hidden {
+    background-color: #00FF00;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+
+
+}
+
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            var index = 0;
+            $('#add').on('click', function () {
+                var breaks='<div id="break'+index+'"> <br> <br>  </div>';
+                var input = '<div id="' + index + '"> <label for="firstname" class="col-md-2"> Add Subject</label>  <div class="col-md-9"> <input type="text" class="form-control" id="' + index + '" name="degsubs" placeholder="Enter Subjects" required> </div> </div> ';
+                var cancel = $('<img src="/img/gallery/cancel.png" widt"20" height="25" id="' + index + '">').on('click',function () {
+                    
+                    var id = $(this).attr('id');
+                    $('#' + id).remove();
+                    $(this).remove();
+
+                    $('#break' + id).remove();
+
+
+
+
+                });
+                $('#this').append(input);
+                $('#this').append(cancel);
+                $('#this').append(breaks);
+                index++;
+
+
+
+            });
+
+
+
+        });
+        
+    </script>
+
+</head>
+
+
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/adminpage">Admin Panel</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="~/Home/students"><i class="fa fa-bullseye"></i> Student Management</a></li>
+                   
+                   <li><a href="~/Home/fa"><i class="fa fa-tasks"></i> First Year Registeration</a></li>
+
+                       
+                   
+                     
+
+                       
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="adminpage"><i class="fa fa-user"></i> Profile</a></li>
+                          
+                            <li class="divider"></li>
+                            <li><a href="/Home/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+       
+		
+       
+        <form action="/Home/add_degree2"  method="post" > 
+            <div id="this">  
+        <div>
+             
+
+                  <label for="firstname" class="col-md-2">
+                Degree Name:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="degname" name="degname" placeholder="Enter Degree Name" required>
+            </div>
+            <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>  
+       <br /> <br />  <br />      
+        <div>
+            <label for="lastname" class="col-md-2" >
+                Degree Fee:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="degfee" name="degfee" placeholder="Enter Degree Fee" required>
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+                 </div>
+            </div>
+            <br /> <br /> <br />
+            <div>
+            <label for="lastname" class="col-md-2" >
+               Add Subject:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="degsubs" name="degsubs" placeholder="Enter Degree Subjects" required>
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+                 </div>
+            </div>
+            
+            <br /> <br /> <BR />
+            </div>
+           <div>
+            <div class="col-md-10">
+                <button type="button" id="add" name="add" class="btn btn-info" style="float:left">
+                    Add new Subject
+                </button> 
+        </div>
+            
+            <div class="col-md-10">
+                <button type="submit" id="submit" name="submit" class="btn btn-info" style="float:right">
+                    Confrirm                </button> 
+        </div>
+
+                
+                
+            </div>
+</form>
+        
+      </div>
+</body>
+    </html>
+

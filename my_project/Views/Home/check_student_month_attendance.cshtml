@@ -1,0 +1,182 @@
+﻿@{
+    ViewBag.Title = "check_student_month_attendance";
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+
+
+<META Http-Equiv="Cache-Control" Content="no-cache"/>
+<META Http-Equiv="Pragma" Content="no-cache"/>
+<META Http-Equiv="Expires" Content="0"/>
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Portal</title>
+
+    <link rel="stylesheet" type="text/css" href="/changing/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/css/local.css" />
+
+    <script type="text/javascript" src="/changing/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/changing/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+    
+
+
+    <style>
+
+    div.hidden {
+    background-color: #00FF00;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+
+
+}
+
+    </style>
+
+
+</head>
+
+
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/adminpage">Admin Panel</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="~/Home/AttendanceManagement"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                     <li><a href="~/Home/check_section_attendance"><i class="fa fa-tasks"></i>View Section Attendance</a></li>
+                     <li><a href="~/Home/check_student_month_attendance"><i class="fa fa-tasks"></i>View Student Monthly Attendance</a></li>
+                     <li><a href="~/Home/check_student_attendance"><i class="fa fa-tasks"></i>View Section Monthly Attendance</a></li>
+
+                    <li><a href="~/Home/AttendanceManagement"><i class="fa fa-tasks"></i> Edit Student Attendance </a></li>
+                    <li><a href="~/Home/SectionManagement"><i class="fa fa-tasks"></i> Edit Section Attendance</a></li>
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="adminpage"><i class="fa fa-user"></i> Profile</a></li>
+                          
+                            <li class="divider"></li>
+                            <li><a href="/Home/logout"><i class="fa fa-power-off"></i> Log Out </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+		
+
+
+       
+
+
+<form action="~/Home/check_studentAttendance1"   method="post" >   
+        
+
+
+    <div>
+            <label for="section" class="col-md-2">
+                Student ID:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="roll" name="roll" placeholder="Enter  ID" required>
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+        <br /> <br /> <br />   
+
+    <div>
+            <label for="section" class="col-md-2">
+                Subject:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="sub" name="sub" placeholder="Enter  Subject" required >
+                
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+           <br /> <br /> <br />
+    <div>
+            <label for="Month" class="col-md-2">
+                Month:
+            </label>
+            <div class="col-md-9">
+               <select class ="form-control" id="month" name="month">
+    <option value="01">January</option>
+    <option value="02">February</option>
+    <option value="03">March</option>
+    <option value="04">April</option>
+    <option value="05">May</option>
+    <option value="06">June</option>
+    <option value="07">July</option>
+    <option value="08">August</option>
+    <option value="09">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+</select>
+       
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+            
+     
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-10">
+                <button type="submit" class="btn btn-info" onclick="return myfunction()">
+                         View Student Monthly Attendance
+                </button> 
+              
+        </div>
+            </div>
+            </form>
+        <font color="red"> <i> <p id="error" align="center" >    </p> </i> </font>
+    
+        </div>
+         
+        </body>
+    </html>
+

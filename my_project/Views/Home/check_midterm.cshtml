@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "check_midterm";
+}
+
+<input type="text" name="" value ="@ViewBag.mess">
+
+<table border="1%" width="100%">
+
+ <tr>
+     <td> Paper</td>
+     <td> Obtain Marks </td>
+ </tr>
+   @{
+       for(int i=0;i<ViewBag.total.Count;i++)
+       {
+           <tr>
+           <td>@ViewBag.total[i]</td>
+               <td>@ViewBag.obtain[i]</td>
+       </tr>
+       }
+   }
+
+    
+
+
+</table>

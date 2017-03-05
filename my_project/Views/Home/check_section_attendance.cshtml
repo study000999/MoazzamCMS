@@ -1,0 +1,286 @@
+﻿@{
+    ViewBag.Title = "check_section_attendance";
+}
+
+@{
+    ViewBag.Title = "check_student_Attendance";
+}
+
+
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Portal</title>
+
+    <link rel="stylesheet" type="text/css" href="/changing/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/css/local.css" />
+
+    <script type="text/javascript" src="/changing/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/changing/bootstrap/js/bootstrap.min.js"></script>   
+
+      <style>
+
+        div {
+            padding-bottom:20px;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        <script type="text/javascript">
+         $(document).ready(function () {
+
+             $('#section').prop('disabled', true);
+             $('#subjects').prop('disabled', true);
+             $('#degree').change(function () {
+                 if ($('#degree').val() == -1) {
+                     $('#section').prop('disabled', true);
+                     $('#subjects').prop('diabled', true);
+                 }
+                 else {
+                     $('#section').prop('disabled', false);
+                     $('#subjects').prop('disabled', false);
+                     $.ajax({
+                         url: '@Url.Action("get_section")',
+                        type: 'POST',
+                        data: { id: $('#degree').val() },
+
+
+
+
+                        success: function (data) {
+
+                            $('#section').empty();
+                            $('#subject').empty();
+                            $(data).each(function (index, item) {
+
+                                $('#section').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                            });
+                        }
+                
+            
+                    });
+
+                    $.ajax({
+                        url: '@Url.Action("get_subjects")',
+                        type: 'POST',
+                        data: { id: $('#degree').val() },
+                        success: function (data) {
+
+                            $('#subjects').empty();
+                            $.each(data, function (index, items) {
+
+                                $('#subjects').append('<option value="' + items.Value + '">' + items.Text + '</option>');
+
+                            });
+                        }
+                    });
+
+                }
+                    
+
+
+
+            });
+        });
+
+
+        
+</script>
+
+
+
+
+
+
+
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/adminpage">Admin Panel</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li><a href="~/Home/AttendanceManagement"><i class="fa fa-bullseye"></i>Attendance Management</a></li>
+                     <li><a href="~/Home/student_attendance_menu"><i class="fa fa-bullseye"></i>Student Attendance</a></li>
+                     
+                 
+                               
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Admin<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                           
+                            <li class="divider"></li>
+                            <li><a href="~/Home/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+       <div>
+        <div class="row text-center">
+          
+        </div>
+           </div>
+
+
+       
+
+
+<form action="~/Home/check_section_attendance1"  method="post" >   
+
+     <div>
+            <label for="section" class="col-md-2">
+                Degree:
+            </label>
+            <div class="col-md-9">
+                @Html.DropDownList("degree", ViewBag.degree as IEnumerable<SelectListItem>, new { @class = "form-control" });
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+        
+           <div>
+            <label for="section" class="col-md-2">
+                Section:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="sec" name="sec" placeholder="Enter  Section" >
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+    <div>
+            <label for="section" class="col-md-2">
+                Subject:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="sub" name="sub" placeholder="Enter  Subject" >
+                
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+            
+     
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-10">
+                <button type="submit" class="btn btn-info" onclick="return myfunction()">
+                         View Section Attendance
+                </button> 
+              
+        </div>
+            </div>
+    <font color="red"> <i> <p id="error" align="center" >    </p> </i> </font>
+            </form>
+        
+
+
+        <form action="check_section_monthly_attendance" method="post">
+
+            <div>
+            <label for="section" class="col-md-2">
+                Section:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="sec1" name="sec1" placeholder="Enter  Section" >
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+    <div>
+            <label for="subject" class="col-md-2">
+                Subject:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="sub1" name="sub1" placeholder="Enter  Subject" >
+                
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+
+             <div>
+            <label for="Month" class="col-md-2">
+                Month:
+            </label>
+            <div class="col-md-9">
+               <select class ="form-control" id="month" name="month">
+    <option value="01">January</option>
+    <option value="02">February</option>
+    <option value="03">March</option>
+    <option value="04">April</option>
+    <option value="05">May</option>
+    <option value="06">June</option>
+    <option value="07">July</option>
+    <option value="08">August</option>
+    <option value="09">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+</select>
+       
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+            
+     
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-10">
+                <button type="submit" class="btn btn-info" onclick="return myfunction1()">
+                         View Monthly Attendance
+                </button> 
+              
+        </div>
+            </div>
+    <font color="red"> <i> <p id="err" align="center" >    </p> </i> </font>
+            </form>
+
+       
+       
+      </div>
+
+
+         
+        </body>
+    </html>
+

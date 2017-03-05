@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "change_section";
+}
+
+
+
+@{
+    ViewBag.Title = "edit_information";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+
+
+<META Http-Equiv="Cache-Control" Content="no-cache"/>
+<META Http-Equiv="Pragma" Content="no-cache"/>
+<META Http-Equiv="Expires" Content="0"/>
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Portal</title>
+
+
+
+    
+     <!-- it is css for table -->
+
+    <link rel="stylesheet" href="~/table/css/normalize.css">
+
+    <link rel='stylesheet prefetch' href='http://bradfrost.github.com/this-is-responsive/styles.css'>
+
+    <link rel="stylesheet" href="~/table/css/style.css">
+
+    <!-- end of table css -->
+
+
+    <link rel="stylesheet" type="text/css" href="~/changing/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/changing/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/changing/css/local.css" />
+
+
+    <script type="text/javascript" src="~/changing/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/changing/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+    
+
+
+    <style>
+
+    div.hidden {
+    background-color: #00FF00;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+
+
+}
+
+    </style>
+
+
+</head>
+
+
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Admin Panel</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="~/Home/adminpage"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    
+                    
+                   
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Admin<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Home/adminpage"><i class="fa fa-user"></i> Profile</a></li>
+                          
+                            <li class="divider"></li>
+                            <li><a href="~/Home/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+		
+		
+
+       
+
+
+         
+
+
+
+       
+
+
+    <table class="dataTable" >
+
+    <thead>
+        
+      
+          <th>Student Name</th>
+        
+        <th> Rollno</th>
+        
+
+       
+
+       
+        
+
+        </thead>
+
+    <tbody>
+
+
+@foreach (var s in Model)
+    {
+        <tr>
+            
+            <td>@s.fname</td>
+           
+            <td>@s.rollno</td>
+            
+            <td>@s.section</td>
+           
+            <td>
+             
+              <a href="/Home/change_section1/@s.rollno">  <button class="/table/button action"> Change  </button> </a>
+
+            </td>
+
+            
+
+            
+
+
+            
+        </tr>
+    }
+  </tbody>
+
+    </table>
+      </p>
+    </div>
+    </body>
+

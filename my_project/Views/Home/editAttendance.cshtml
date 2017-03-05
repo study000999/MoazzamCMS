@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "editAttendance";
+}
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $('input[type="text"]').each(function()
+
+        {
+
+            $(this).css('border','2px solid gree');
+        }
+
+
+    });
+
+
+</script>
+
+<form action="editAttendance1" method="post">
+    
+<table>
+    
+@{
+     int count = 0;
+     string s="rolls";
+    foreach (var i in Model)
+
+    {
+    <tr>
+    <td> <input type="text" name="@(count)" value="@i.student_id" /> </td>
+    <td>@i.attendence</td>
+    <td><input type="checkbox" name='@(s+count)' value="checked"/></td>
+       
+    </tr>
+   count++;
+}
+}
+    </table>
+    
+    <input type="hidden" name="sec" value="@ViewBag.sec"/>
+    <input type="hidden" name="sub" value="@ViewBag.sub"/>
+    <input type="hidden" name="date" value="@ViewBag.date"/>
+    <input type="submit" name="submit" value="submit" />
+</form>

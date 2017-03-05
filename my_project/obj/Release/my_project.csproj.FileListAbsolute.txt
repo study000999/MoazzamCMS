@@ -1,0 +1,56 @@
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\my_project.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\my_project.pdb
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\DocumentFormat.OpenXml.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\EntityFramework.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\EntityFramework.SqlServer.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\Newtonsoft.Json.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Net.Http.Formatting.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Helpers.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Http.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Http.WebHost.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Mvc.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Razor.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.WebPages.Deployment.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.WebPages.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.WebPages.Razor.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\EntityFramework.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\EntityFramework.SqlServer.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\Newtonsoft.Json.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Net.Http.Formatting.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Helpers.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Http.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Http.WebHost.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Mvc.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.Razor.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.WebPages.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.WebPages.Deployment.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\bin\System.Web.WebPages.Razor.xml
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\obj\Release\my_project.dll
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\obj\Release\my_project.pdb
+C:\Users\asus\Documents\Visual Studio 2012\Projects\my_project\my_project\obj\Release\my_project.csprojResolveAssemblyReference.cache
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\my_project.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\my_project.pdb
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\DocumentFormat.OpenXml.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\EntityFramework.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\EntityFramework.SqlServer.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\Newtonsoft.Json.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.Helpers.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.Mvc.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.Razor.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.WebPages.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.WebPages.Razor.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\EntityFramework.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\EntityFramework.SqlServer.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\Newtonsoft.Json.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.Helpers.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.Mvc.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.Razor.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.WebPages.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\bin\System.Web.WebPages.Razor.xml
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\obj\Release\my_project.csprojResolveAssemblyReference.cache
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\obj\Release\my_project.dll
+C:\Users\Kashif\Desktop\OurProject\my_project\my_project\obj\Release\my_project.pdb

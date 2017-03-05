@@ -1,0 +1,298 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Portal</title>
+
+    <link rel="stylesheet" type="text/css" href="/changing/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/css/local.css" />
+
+    <script type="text/javascript" src="/changing/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/changing/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+    <style>
+
+    div.hidden {
+    background-color: #00FF00;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+
+
+}
+
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#sec').prop('disabled', true);
+
+            $('#degree').change(function () {
+
+
+                if ($('#new_degree').val() == -1) {
+
+                    $('#new_sec').prop('disabled', true);
+
+
+                }
+                else {
+
+                    $('#sec').prop('disabled', false);
+                    v = $('#degree').val();
+                    alert(v);
+
+                    $.ajax({
+                        url: '@Url.Action("get_section")',
+                    type: "POST",
+                    data: { id: $('#degree').val() },
+
+                    success: function (data) {
+
+                        $('#sec').empty();
+                        $(data).each(function (index, item) {
+                            $('#sec').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+
+                        });
+
+                    }
+                });
+
+
+                }
+
+
+            });
+
+            $('#forms').submit(function (e) {
+                var v=$('#sec').val();
+                alert(v);
+
+            });
+
+            });
+       
+
+
+    </script>
+
+
+</head>
+
+
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/adminpage">Admin Panel</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="~/Home/students"><i class="fa fa-bullseye"></i> Student Management</a></li>
+                   
+                   
+
+                       
+                   
+                     
+
+                       
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="adminpage"><i class="fa fa-user"></i> Profile</a></li>
+                          
+                            <li class="divider"></li>
+                            <li><a href="/Home/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+       
+		
+
+        <form action="/Home/Add_Student"  method="post" id="forms">   
+            <div>
+
+             <div>
+             
+            
+                  <label for="firstname" class="col-md-2">
+                Registeration Number:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="reg" name="reg" placeholder="Enter First Name" value="@ViewBag.reg_num" readonly >
+            </div>
+            <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>  
+
+<br /> <br />
+                 <div>
+
+             
+             
+            
+                  <label for="firstname" class="col-md-2">
+                Fee Type:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="fee_type" name="fee_type" placeholder="Enter First Name" value="@ViewBag.fee_type" readonly >
+            </div>
+            <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>  
+<br /> <br />
+        <div>
+             
+            
+                  <label for="firstname" class="col-md-2">
+                First Name:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="firstname" name="fname" placeholder="Enter First Name" required>
+            </div>
+            <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>  
+       <br /> <br />       
+        <div>
+            <label for="lastname" class="col-md-2" >
+                Last Name:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="lastname" name="lname" placeholder="Enter Last Name" required>
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+           <br /> <br />       
+       
+            <label for="password" class="col-md-2">
+                Password:
+            </label>
+            <div class="col-md-9">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+                 
+        </div>
+            <br /> <br />     
+               
+           <div>
+            <label for="section" class="col-md-2">
+                Session:
+            </label>
+            <div class="col-md-9">
+                
+             @Html.DropDownList("session", ViewBag.session as IEnumerable<SelectListItem>, new { @class = "form-control" })
+
+</div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+            <br /> <br />
+
+    <div>
+            <label for="section" class="col-md-2">
+                Degree:
+            </label>
+            <div class="col-md-9">
+                
+             @Html.DropDownList("degree", ViewBag.degree as IEnumerable<SelectListItem>, new { @class = "form-control" })
+
+</div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+            
+            <br /> <br />
+             
+              
+           <div>
+            <label for="section" class="col-md-2">
+                Section:
+            </label>
+            <div class="col-md-9">
+                
+               <select name="sec" id="sec"   class="form-control">
+
+               </select>
+                    
+
+                </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+          <br /> <br />         
+
+
+     
+         .
+
+
+        
+            
+          
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-10">
+                <button type="submit" class="btn btn-info">
+                    Register
+                </button> 
+        </div>
+            </div>
+             </form>   
+    </div>  
+   
+    
+
+</body>
+</html>
+

@@ -1,0 +1,219 @@
+﻿
+
+@{
+    ViewBag.Title = "studentAttendance1";
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+
+
+<META Http-Equiv="Cache-Control" Content="no-cache"/>
+<META Http-Equiv="Pragma" Content="no-cache"/>
+<META Http-Equiv="Expires" Content="0"/>
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Portal</title>
+
+    <link rel="stylesheet" type="text/css" href="/changing/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/css/local.css" />
+    <link rel="stylesheet" type="text/css" href="/css/s_table_css/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/s_table_css/css/normalize.css" />
+    <script type="text/javascript" src="/changing/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/changing/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script>
+
+
+    <style type="text/css">
+
+    div.hidden {
+    background-color: #00FF00;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+
+
+}
+
+
+
+    </style>
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            alert("@ViewBag.data");
+            $('#submit').click(function () {
+                
+                var attend = ',';
+                var rolls = ',';
+                $('input[type="checkbox"]').each(function()
+                {
+                    
+                    if ($(this).is(':checked')) {
+                        attend = attend + 'P' + ',';
+                    }
+                    else {
+                        
+                        attend = attend + 'A' + ',';
+                    }
+
+
+                });
+               
+                $('input[type="text"]').each(function () {
+                    
+                    rolls = rolls+$(this).val()+',';
+
+                });
+                $.ajax({
+                    url:'@Url.Action("MarkAttendence")',
+                    type:'POST',
+                    data: {
+                        ids: rolls,
+                        attendence: attend,
+                        sect: $('#sec').val(),
+                        sub:$('#sub').val(),
+                        date:$('#date').val()
+                    },
+                    success: function (data) {
+                        if (data == true) {
+                            alert("Attendance is marked");
+                        }
+                    }
+
+
+                });
+                
+                
+
+
+                });
+                
+            });
+
+
+
+       
+
+    </script>
+
+
+</head>
+
+
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/teacher_mainpage">Teacher Panel</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active"><a href="~/Home/teacher_mainpage"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li><a href="~/Home/studentAttendance"><i class="fa fa-tasks"></i> Attendance</a></li>
+                    <li><a href="~/Home/MidMarks"><i class="fa fa-tasks"></i> Quizes</a></li>
+                    <li><a href="~/Home/Quizes"><i class="fa fa-tasks"></i> MidTerm Result</a></li>
+                    <li><a href="~/Home/FinalTermMarks"><i class="fa fa-tasks"></i> FinalTerm Result</a></li>
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @ViewBag.mes<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Home/teacher_mainpage"><i class="fa fa-user"></i> Profile</a></li>
+                          
+                            <li class="divider"></li>
+                            <li><a href="/Home/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="responstable">
+
+  <tr>
+      <th>Student ID</th>
+      <th>Attendnace</th>
+  </tr>
+    @{
+        
+        
+        for(int i=0;i<@ViewBag.id.Count;i++)
+        {
+            <tr>
+            <td> <input type="text" name="rollno" value="@ViewBag.id[i]" readonly/> </td>
+                <td> <input type="checkbox" id="checkbox+@i" name="@i" value="present"/> Present
+                     
+                </td>
+
+            
+            </tr>
+        }
+        
+       
+        
+    }
+    </table>
+    <input type="hidden" name="section"  id="sec" value="@ViewBag.section" /> 
+        <input type="hidden" name="subject" id="sub" value="@ViewBag.subject" />
+        <input type="hidden" name="date" id="date" value="@ViewBag.date" />
+
+
+
+    <br />
+    <br />
+    <div class="col-md-10">
+               <p align="right"> <button type="submit" id="submit" class="btn btn-info">
+                    Submit
+                </button> 
+
+                   </p>
+        </div>
+  
+    </div>
+   
+        </body>
+    </html>

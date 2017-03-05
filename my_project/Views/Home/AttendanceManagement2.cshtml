@@ -1,0 +1,22 @@
+﻿@model List <my_project.Models.student_subject>
+
+@{
+    ViewBag.Title = "AttendanceManagement2";
+    var grid = new WebGrid(source: Model, canPage: false);
+}
+
+<div>
+   @grid.GetHtml(
+   tableStyle:"gridtable",
+   columns:grid.Columns(
+       grid.Column("Subject1","sub1")
+       
+       
+       )
+       )
+   
+</div>
+
+<div>
+    Export Data:@Html.ActionLink("Excel","GetExcel","Home");
+</div>

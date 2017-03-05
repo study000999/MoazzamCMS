@@ -1,0 +1,196 @@
+﻿@{
+    ViewBag.Title = "update_subjects";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Portal</title>
+
+    <link rel="stylesheet" type="text/css" href="/changing/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/changing/css/local.css" />
+
+    <script type="text/javascript" src="/changing/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/changing/bootstrap/js/bootstrap.min.js"></script>  
+    <script type="text/javascript">
+      
+        </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+
+
+            $('#session').change(function () {
+                v = $('#session').val();
+                alert(v);
+
+                $.ajax({
+                    url: '@Url.Action("get_subjects_for_update")',
+                    type: 'POST',
+                    data: {
+                        deg: $('#degree').val(),
+                        sess: $('#session').val(),
+                    },
+                    success: function (data) {
+                        if (data == false) {
+                            alert("something wrong");
+                            $('#subjects').prop('disabled', true);
+                            return false;
+                        }
+                        else {
+
+                            $(data).each(function (index, item) {
+                                $('#subjects').append('<option value="' + item.Value + '">' + item.Text + '</option>');
+
+                            });
+                        }
+
+
+
+                    }
+
+
+
+
+                });
+            });
+
+
+            $('#forms').submit(function (e) {
+                alert("han");
+                if (($('#subjects').is(':disabled') == true) || ($.trim($('#new_name').val()).length == 0)) {
+                    e.preventDefault();
+
+                }
+
+            });
+        });
+
+            
+       
+
+
+
+    </script>
+
+      <style type="text/css">
+
+        div {
+            padding-bottom:20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/adminpage">Admin Panel</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li><a href="~/Home/teachers"><i class="fa fa-bullseye"></i>Teacer Management</a></li>
+                      
+                               
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    
+                     <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                           
+                            <li class="divider"></li>
+                            <li><a href="~/Home/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+       <div>
+        <div class="row text-center">
+            <h2>Update Subjects</h2>
+        </div>
+           </div>
+
+
+         <form action ="update_finally" method="post" id="forms">
+        
+          
+
+
+
+            <div>
+            <label for="password" class="col-md-2">
+              Section
+            </label>
+            <div class="col-md-9">
+              @Html.DropDownList("degree", ViewBag.degree as List<SelectListItem>, new { @class = "form-control" })
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+             <div>
+            <label for="password" class="col-md-2">
+              Session
+            </label>
+            <div class="col-md-9">
+              @Html.DropDownList("session", ViewBag.sess as List<SelectListItem>, new { @class = "form-control" })
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+            
+
+            <div>
+            <label for="password" class="col-md-2">
+              Subjects
+            </label>
+            <div class="col-md-9">
+            <select id="subjects" name="subjects" class="form-control">
+             </select>
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+             <div>
+            <label for="fname" class="col-md-2">
+                New Name:
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="new_name" name="new_name">
+                
+            </div>
+             <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+
+     <button type="submit" class="btn btn-info"> Update Section </button>
+            </form>
+            </div>
+
+    
+</body>
+</html>
+
